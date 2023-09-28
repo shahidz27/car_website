@@ -3,7 +3,8 @@ import { MouseEventHandler } from "react";
 export interface CustonButtonProps{
     title:string;
     containerStyles?:string;
-    handleClick?:MouseEventHandler<HTMLButtonElement>
-
+    handleClick?:MouseEventHandler<HTMLButtonElement
+>
+btntype?:"button"|"submit";
 
 }
