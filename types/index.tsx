@@ -8,3 +8,7 @@ export interface CustonButtonProps{
 btntype?:"button"|"submit";
 
 }
+export interface SearchManufacturesProps{
+    manufacturer: string;
+    setManufacturer :(manufacturer: string)=>void;
+}
