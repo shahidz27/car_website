@@ -6,6 +6,10 @@ export interface CustonButtonProps{
     handleClick?:MouseEventHandler<HTMLButtonElement
 >
 btntype?:"button"|"submit";
+textStyles?:string;
+rightIcon?:string;
+isDisabled?:boolean;
+
 
 }
 export interface SearchManufacturesProps{

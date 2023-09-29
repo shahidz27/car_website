@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import { CustonButtonProps } from '@/types'
 
-const CustomButton = ({title, btntype,containerStyles,handleClick}:CustonButtonProps) => {
+const CustomButton = ({title, btntype,textStyles,rightIcon,containerStyles,handleClick}:CustonButtonProps) => {
   return (
     <div>
       <button 
@@ -13,7 +13,13 @@ const CustomButton = ({title, btntype,containerStyles,handleClick}:CustonButtonP
 
       onClick={handleClick}
       >
-         <span className={`flex-1`}> {title}</span>
+         <span className={`flex-1 ${textStyles}`}> {title}</span>
+         {rightIcon && (<div className='relative w-6 h-6 '> 
+         <Image src={rightIcon} alt="right icon" fill  className='object-contain'/>
+          
+   
+         
+         </div>)}
       </button>
     </div>
   )
