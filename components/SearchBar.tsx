@@ -1,10 +1,10 @@
-"use client"
+"use client";
 import React, { use } from 'react'
 import { useState } from 'react'
 import { SearchManufactures } from '.'
 import Image from 'next/image'
 import { text } from 'stream/consumers'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 const SearchButton =({otherClasses}:{otherClasses:string})=>{
   return (
     <button type="submit" className={`-ml-3 z-10 ${otherClasses}`}>
@@ -22,9 +22,10 @@ const SearchBar = () => {
       e.preventDefault();
       if(manufacturer===" "&& model===" ") {
       return alert("pls fill the box")
+      
 
     }
-    updateSearchParams(model.toLowerCase(),manufacturer.toLowerCase())
+    updateSearchParams(model.toLowerCase(),manufacturer.toLowerCase());
     }
     const updateSearchParams =(model:string,manufacturer:string)=>{
       const searchParams = new URLSearchParams(window.location.search);

@@ -2,14 +2,23 @@ import { Carcard } from '@/components'
 import CustomFilter from '@/components/CustomFilter'
 import SearchBar from '@/components/SearchBar'
 import Hero from '@/components/hero'
+import { FilterProps } from '@/types'
 import { fetchCars } from '@/utils'
 import Image from 'next/image'
 
 
 
-export default  async function Home() {
-  const allCars=await fetchCars();
-  console.log(allCars)
+export default  async function Home( searchParams) {
+  const allCars=await fetchCars({
+    manufacturer:searchParams.manufacturer||'',
+    year:searchParams.year||'2020',
+    limit:searchParams.limit||'10',
+    fuel:searchParams.fuel||'',
+    model:searchParams.model
+
+  });
+  console.log(allCars);
+
   const isDataEmpty =!Array.isArray(allCars)||allCars.length<1||!allCars;
   return (
     <main className='overflow-hidden'>
@@ -21,7 +30,7 @@ export default  async function Home() {
           <p>Explore the car you might like.</p>
         </div>
         <div className='home__filters'>
-          <SearchBar/>
+          <SearchBar />
           <div  className='home__filter-container'>
             <CustomFilter title=" fuel"/>
             <CustomFilter title=" year"/> 
