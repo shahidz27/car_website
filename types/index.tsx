@@ -41,3 +41,13 @@ export interface FilterProps{
     model:string;
 
 }
+
+export interface OPtionProps {
+    title:string;
+    value:string;
+
+}
+export interface CustomFilterProps{
+    title :string;
+    options:OPtionProps[];
+}

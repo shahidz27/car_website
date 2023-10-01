@@ -2,6 +2,7 @@ import { Carcard } from '@/components'
 import CustomFilter from '@/components/CustomFilter'
 import SearchBar from '@/components/SearchBar'
 import Hero from '@/components/hero'
+import { fuels, yearsOfProduction } from '@/constants/constants'
 import { FilterProps } from '@/types'
 import { fetchCars } from '@/utils'
 import Image from 'next/image'
@@ -14,7 +15,7 @@ export default  async function Home( searchParams) {
     year:searchParams.year||'2020',
     limit:searchParams.limit||'10',
     fuel:searchParams.fuel||'',
-    model:searchParams.model
+    model:searchParams.model||'',
 
   });
   console.log(allCars);
@@ -32,8 +33,8 @@ export default  async function Home( searchParams) {
         <div className='home__filters'>
           <SearchBar />
           <div  className='home__filter-container'>
-            <CustomFilter title=" fuel"/>
-            <CustomFilter title=" year"/> 
+            <CustomFilter title=" fuel" options={fuels}/>
+            <CustomFilter title=" year" options={yearsOfProduction}/> 
           </div>
         </div>
         {!isDataEmpty ? (
