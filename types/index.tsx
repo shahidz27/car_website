@@ -55,3 +55,6 @@ export interface ShowMoreProps{
     pageNumber:number;
     isNext:boolean;
 }
+export interface HomeProps {
+    searchParams: FilterProps;
+  }
